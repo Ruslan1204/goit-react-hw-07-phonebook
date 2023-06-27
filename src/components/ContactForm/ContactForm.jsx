@@ -1,8 +1,7 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 import css from '../ContactForm/ContactForm.module.css';
-import { useDispatch } from 'react-redux';
-// import { addContactsAction } from 'Redux/contacts.slice';
+import { useDispatch, useSelector } from 'react-redux';
 import { addContacts } from 'Redux/contactsOperations';
 
 export const ContactForm = () => {
@@ -10,20 +9,19 @@ export const ContactForm = () => {
   const [number, setnumber] = useState('');
 
   const dispatch = useDispatch();
-  // const items = useSelector(state => state.contacts.items);
+  const items = useSelector(state => state.contacts.items);
 
   const handleAddContacts = (name, number) => {
-    dispatch(addContacts(name, number));
-    // const mapName = items.map(item => {
-    //     return item.name;
-    //   })
-    //   .join('')
-    //   .includes(name);
-    // if (!mapName) {
-    //   dispatch(addContactsAction(name, number));
-    // } else {
-    //   return alert(`${name} is already in contacts.`);
-    // }
+    const mapName = items.map(item => {
+        return item.name;
+      })
+      .join('')
+      .includes(name);
+    if (!mapName) {
+      dispatch(addContacts(name, number));
+    } else {
+      return alert(`${name} is already in contacts.`);
+    }
   };
 
   const handleChangeForm = evt => {

@@ -1,12 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
-// import { initState } from './contacts.init-state';
 
 export const filterSlice = createSlice({
   name: 'filter',
-  initialState: { filter: '' },
+  initialState: '',
   reducers: {
     contactsFilterAction(state, { payload }) {
-      state.filter = payload;
+      state = payload;
+      return state;
     },
   },
 });

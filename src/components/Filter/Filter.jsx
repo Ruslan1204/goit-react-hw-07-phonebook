@@ -1,5 +1,6 @@
 import { contactsFilterAction } from 'Redux/filter.slice';
 // import PropTypes from 'prop-types';
+// import { filterContacts } from 'Redux/contactsOperations';
 import { useDispatch, useSelector } from 'react-redux';
 
 export const Filter = () => {
@@ -8,7 +9,9 @@ export const Filter = () => {
 
   const changeFilter = evt => {
     const { value } = evt.target;
+    // dispatch(contactsFilterAction(value));
     dispatch(contactsFilterAction(value));
+
   };
   
   return (
@@ -19,7 +22,7 @@ export const Filter = () => {
   );
 };
 
-Filter.propTypes = {
-  // filter: PropTypes.string.isRequired,
-  // onChange: PropTypes.func,
-};
+// Filter.propTypes = {
+//   // filter: PropTypes.string.isRequired,
+//   // onChange: PropTypes.func,
+// };
