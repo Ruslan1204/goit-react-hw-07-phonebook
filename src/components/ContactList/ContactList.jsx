@@ -10,7 +10,7 @@ import * as contactsSelectors from '../../Redux/contactsSelectors'
 
 export const ContactList = () => {
   const dispatch = useDispatch();
-  const filter = useSelector(state => state.filter);
+  const filter = useSelector(contactsSelectors.getFilterContacts);
   const items = useSelector(contactsSelectors.getItemsContacts);
 
   useEffect(()=> {

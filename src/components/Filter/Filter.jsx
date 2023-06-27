@@ -3,17 +3,18 @@ import { contactsFilterAction } from 'Redux/filter.slice';
 // import { filterContacts } from 'Redux/contactsOperations';
 import { useDispatch, useSelector } from 'react-redux';
 
+import * as contactsSelectors from '../../Redux/contactsSelectors';
+
 export const Filter = () => {
   const dispatch = useDispatch();
-  const filter = useSelector(state => state.filter);
+  const filter = useSelector(contactsSelectors.getFilterContacts);
 
   const changeFilter = evt => {
     const { value } = evt.target;
     // dispatch(contactsFilterAction(value));
     dispatch(contactsFilterAction(value));
-
   };
-  
+
   return (
     <label>
       <p>Find contacts by name</p>
